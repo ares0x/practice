@@ -1,4 +1,8 @@
-export tag=v0.3
+export tag=v0.4
+author = ares0x
+servername = webserver
+
+KUBECTL := kubectl
 
 root:
 	export root=github.com/ares0x/practice
@@ -10,11 +14,10 @@ build:
 
 release:
 	echo "building webserver container"
-	docker build -t ares0x/webserver:${tag} .
+	docker build -t $(author)/$(servername):${tag} .
 
 unuse:
 	eval $(minikube docker-env -u)
 
 use:
 	eval $(minikube docker-env)
-
