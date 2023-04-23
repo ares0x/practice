@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+  labels:
+    name: webserver
+spec:
+  selector:
+    matchLabels:
+      app: webserver
+
+  template:
+    metadata:
+      labels:
+        app: webserver 
+    spec:
+      containers:
+      - name: webserver 
+        image: ares0x/webserver:0.3 
+        ports:
+        - containerPort: 8888 
